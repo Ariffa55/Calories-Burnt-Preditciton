@@ -1,0 +1,54 @@
+<!-- calories.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calories Burnt Prediction</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="/"> <span> Home </span></a>
+        <div class="heading">Calories Burnt Prediction</div>
+        {% if session.get('user') %}
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+        {% endif %}
+    </div>
+
+    
+    
+    <h1>Calories Burnt Prediction</h1>
+    <form id="predictionForm">
+        <label for="gender">Gender (0 for Male, 1 for Female):</label>
+        <input type="number" id="gender" name="Gender" required><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="Age" required><br><br>
+
+        <label for="height">Height (in cm):</label>
+        <input type="number" id="height" name="Height" required><br><br>
+
+        <label for="weight">Weight (in kg):</label>
+        <input type="number" id="weight" name="Weight" required><br><br>
+
+        <label for="duration">Duration (in minutes):</label>
+        <input type="number" id="duration" name="Duration" required><br><br>
+
+        <label for="heart_rate">Heart Rate:</label>
+        <input type="number" id="heart_rate" name="Heart_Rate" required><br><br>
+
+        <label for="body_temp">Body Temperature (in °C):</label>
+        <input type="number" id="body_temp" name="Body_Temp" required><br><br>
+
+        <button type="submit">Predict Calories Burnt</button>
+    </form>
+    <div class="result-container">
+    <h2 >Calories Burnt Prediction Result:</h2><br>
+    <p id="result"></p>
+    </div>
+    <script src="static/script.js"></script>
+</body>
+</html>

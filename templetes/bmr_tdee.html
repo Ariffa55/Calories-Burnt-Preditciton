@@ -1,0 +1,53 @@
+<!-- bmr_tdee.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMR and TDEE Calculator</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="/"> <span> Home </span></a>
+        <div class="heading">BMR and TDEE Calculator</div>
+        {% if session.get('user') %}
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+        {% endif %}
+    </div>
+
+    
+    <h1>BMR and TDEE Calculator</h1>
+    <form id="bmrTdeeForm">
+        <label for="bmr_age">Age:</label>
+        <input type="number" id="bmr_age" required><br><br>
+
+        <label for="bmr_gender">Gender (0 for Male, 1 for Female):</label>
+        <input type="number" id="bmr_gender" required><br><br>
+
+        <label for="bmr_weight">Weight (in kg):</label>
+        <input type="number" id="bmr_weight" required><br><br>
+
+        <label for="bmr_height">Height (in cm):</label>
+        <input type="number" id="bmr_height" required><br><br>
+
+        <label for="activity_level">Activity Level:</label>
+        <select id="activity_level" required>
+            <option value="Sedentary">Sedentary</option>
+            <option value="Light">Light</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Active">Active</option>
+            <option value="Very Active">Very Active</option>
+        </select><br><br>
+
+        <button type="submit">Calculate BMR and TDEE</button>
+    </form>
+    <div class="result-container">
+    <h2>BMR and TDEE Result:</h2>
+    <p id="bmrTdeeResult"></p>
+    </div>
+    <script src="static/script.js"></script>
+</body>
+</html>

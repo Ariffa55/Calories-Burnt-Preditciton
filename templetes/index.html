@@ -1,0 +1,44 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calories burnt prediction</title>
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body style="background-color: lavenderblush;">
+    
+    <div class="overlay" id="myNav">
+        <h1><marquee style="background-color: rgb(213, 145, 248); margin-bottom:0px; padding:20px"> CALORIES BURNT PREDICTION </marquee></h1>
+        <div class="topnav">
+            <a class="active" href="{{ url_for('home') }}"><i class="fa fa-fw fa-home"></i> Home</a>
+            <a href="{{ url_for('calories_page') }}"><i class="fas fa-running"></i> Calorie Burnt Prediction</a>
+            <a href="{{ url_for('bmi_page') }}"><i class="fas fa-weight-scale"></i> BMI Calculator</a>
+            <a href="{{ url_for('bmr_tdee_page') }}"><i class="fa fa-calculator"></i> BMR and TDEE Calculator</a>
+
+            {% if session.get('user') %}
+            <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Login</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="information">
+        <h1>Welcome to the Health & Fitness Calculator</h1>
+        <p>This website provides useful tools to help you track and manage your fitness. Use the links above to navigate to the different calculators.</p>
+    
+        <h3>Available Calculators:</h3>
+        <ul class="ul">
+            <li><b>Calories Burnt Prediction:</b> Predict the calories burnt based on activity and health metrics.</li>
+            <li><strong>BMI Calculator:</strong> Calculate your Body Mass Index (BMI) to understand your weight category.</li>
+            <li><strong>BMR & TDEE Calculator:</strong> Determine your Basal Metabolic Rate (BMR) and Total Daily Energy Expenditure (TDEE).</li>
+        </ul>
+        
+        <p>Click on the links in the navigation bar to access each calculator.</p>
+    </div>
+    <script src="static/script.js"></script>
+</body>
+</html>
